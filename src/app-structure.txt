@@ -1,0 +1,14 @@
+● src
++---● app
+|   +--● doc-details
+|   |  |--doc-details.component.ts|.html
+|   |  +--● doc-detail-form
+|   |  |  |--doc-detail-form.component.ts|.html
+|   |  
+|   +--● shared
+|   |  |--doc-detail.service.ts
+|   |  |--doc-detail.model.ts
+|   |
+|   |--app.module.ts
+|
+|--index.html (cdn path for bootstrap & fa icons)
