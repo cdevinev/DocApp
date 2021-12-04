@@ -5,3 +5,12 @@ export class DocDetail {
     expirationDate: string='';
     securityCode: string='';
 }
+
+export class UserDetail {
+    userDetailId: number=0;
+    userName: string='';
+    userSurname: string='';
+    userNumber: string='';
+    userEmail: string='';
+}
+

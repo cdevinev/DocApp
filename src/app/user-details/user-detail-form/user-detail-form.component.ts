@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocDetailService } from 'src/app/shared/doc-detail.service';
 import { NgForm } from '@angular/forms';
-import { DocDetail } from 'src/app/shared/doc-detail.model';
+import { DocDetail, UserDetail } from 'src/app/shared/doc-detail.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styles: [
   ]
 })
-export class DocDetailFormComponent implements OnInit {
+export class UserDetailFormComponent implements OnInit {
 
   constructor(public service: DocDetailService,
     private toastr: ToastrService) { }
@@ -18,18 +18,18 @@ export class DocDetailFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm) {
-    if (this.service.formData.docDetailId == 0)
-      this.insertRecord(form);
+  onSubmit(userform: NgForm) {
+    if (this.service.userFormData.userDetailId == 0)
+      this.insertRecord(userform);
     else
-      this.updateRecord(form);
+      this.updateRecord(userform);
   }
 
   insertRecord(form: NgForm) {
-    this.service.postDocDetail().subscribe(
+    this.service.postUserDetail().subscribe(
       res => {
         this.resetForm(form);
-        this.service.refreshList();
+        this.service.refreshUserList();
         this.toastr.success('Submitted successfully', 'Documentor')
       },
       err => { console.log(err); }
@@ -37,10 +37,10 @@ export class DocDetailFormComponent implements OnInit {
   }
 
   updateRecord(form: NgForm) {
-    this.service.putDocDetail().subscribe(
+    this.service.putUserDetail().subscribe(
       res => {
         this.resetForm(form);
-        this.service.refreshList();
+        this.service.refreshUserList();
         this.toastr.info('Updated successfully', 'Documentor')
       },
       err => { console.log(err); }
@@ -50,7 +50,7 @@ export class DocDetailFormComponent implements OnInit {
 
   resetForm(form: NgForm) {
     form.form.reset();
-    this.service.formData = new DocDetail();
+    this.service.userFormData = new UserDetail();
   }
 
 }
