@@ -3,6 +3,16 @@ import { DocDetail, UserDetail } from './doc-detail.model';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
+
+export interface User 
+{
+  User_ID : number;
+  User_FirstName : string;
+  User_LastName : string;
+  User_CellphoneNumber : number;
+  User_EmailAddress : number;
+  //UserImage : ImageBitmap;
+}
 @Injectable({
   providedIn: 'root'
 })
