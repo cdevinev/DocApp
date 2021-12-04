@@ -1,0 +1,32 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center">Documentor App</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-doc-detail-form></app-doc-detail-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Document Owner</th>
+                    <th>Document Name</th>
+                    <th>Actions</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list">
+                    <td (click)="populateForm(pd)">{{pd.cardOwnerName}}a</td>
+                    <td (click)="populateForm(pd)">{{pd.cardNumber}}b</td>
+                    <td (click)="populateForm(pd)">{{pd.expirationDate}}c</td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.docDetailId)"></i>
+                        <i class="far fa-pen-alt fa-lg text-danger" (click)="onDelete(pd.docDetailId)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
